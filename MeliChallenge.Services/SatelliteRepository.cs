@@ -1,9 +1,7 @@
 ﻿using MeliChallenge.Domain;
 using MeliChallenge.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace MeliChallenge.Services
 {
@@ -25,9 +23,16 @@ namespace MeliChallenge.Services
 
         public void UpdateDistance(string Name, float updatedDistance)
         {
-            var updated=_list.SingleOrDefault(x=>x.Name==Name);
+            var updated=_list.SingleOrDefault(x=>x.Name.ToLower()==Name.ToLower());
             updated.SavedDistance = updatedDistance;
 
+        }
+
+        public void UpdateInfo(string Name, float updatedDistance, string[] updatedMessage)
+        {
+            var updated = _list.SingleOrDefault(x => x.Name.ToLower() == Name.ToLower());
+            updated.SavedDistance = updatedDistance;
+            updated.SavedMessage = updatedMessage;
         }
 
         public void UpdateMessage(string Name, string[] updatedMessage)

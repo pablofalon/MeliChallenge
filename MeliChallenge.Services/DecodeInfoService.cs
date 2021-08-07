@@ -7,9 +7,9 @@ namespace MeliChallenge.Services
 {
     public class DecodeInfoService : IDecodeInfoService
     {
-        private const string KENOBI = "Kenobi";
-        private const string SKYWALKER = "Skywalker";
-        private const string SATO = "Sato";
+        private const string KENOBI = "kenobi";
+        private const string SKYWALKER = "skywalker";
+        private const string SATO = "sato";
 
         public static IList<Satellite> _list;
         public readonly ILocationService _locationService;
@@ -32,22 +32,20 @@ namespace MeliChallenge.Services
         public Spaceship GetInformationAboutSingleStarship(MessagePositionInfo messagePositionInfo)
         {
             float[] distances = new float[3];
-            float[] finalLocation = new float[2];            
+            float[] finalLocation = new float[2];
             string finalString = string.Empty;
             string[] mensaje1, mensaje2, mensaje3 = new string[5];
 
-
             var satellite = messagePositionInfo.Name;
-            var anotherSatelliteInfo = _satelliteRepository.GetAll().Where(x => x.Name != satellite).ToList();
 
-            if (anotherSatelliteInfo.Any(x=>x.SavedDistance==0))
+            var anotherSatelliteInfo = _satelliteRepository.GetAll().Where(x => x.Name != satellite).ToList();
+            if (anotherSatelliteInfo.Any(x => x.SavedDistance == 0))
             {
                 return null;
             }
 
             //Actualiza la info en el repositorio 
-            _satelliteRepository.UpdateDistance(messagePositionInfo.Name, messagePositionInfo.Distance);
-            _satelliteRepository.UpdateMessage(messagePositionInfo.Name, messagePositionInfo.message);
+            _satelliteRepository.UpdateInfo(messagePositionInfo.Name, messagePositionInfo.Distance, messagePositionInfo.message);
 
             distances[0] = messagePositionInfo.Distance;
 
@@ -56,20 +54,19 @@ namespace MeliChallenge.Services
             {
                 distances[i] = item.SavedDistance;
                 i++;
-            }                
+            }
 
-            mensaje1 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == KENOBI).SavedMessage;
-            mensaje2 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == SKYWALKER).SavedMessage;
-            mensaje3 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == SATO).SavedMessage;
+            GetSavedMessages(out mensaje1, out mensaje2, out mensaje3);
 
             //Resolucion de Informacion
             finalLocation = _locationService.GetLocation(distances);
-            finalString = _messageService.GetMessage(mensaje1,mensaje2,mensaje3);
+            finalString = _messageService.GetMessage(mensaje1, mensaje2, mensaje3);
 
-            var spaceShip = new Spaceship(finalLocation[0], finalLocation[1], finalString);      
+            var spaceShip = new Spaceship(finalLocation[0], finalLocation[1], finalString);
             return spaceShip;
-                
-        }
+
+        }      
+
         /// <summary>
         /// Este metodo recupera la posicion y el mensaje de la nave en base a la informacion enviada y la guardada en el repositorio
         /// </summary>
@@ -89,7 +86,6 @@ namespace MeliChallenge.Services
             }
            
             finalLocation= _locationService.GetLocation(distances);
-
             finalString = _messageService.GetMessage(ListOfMessagePositionInfo[0].message,
                 ListOfMessagePositionInfo[1].message,
                 ListOfMessagePositionInfo[2].message);
@@ -97,14 +93,18 @@ namespace MeliChallenge.Services
             //Actualizar informacion del repositorio
             foreach (var info in ListOfMessagePositionInfo)
             {
-                _satelliteRepository.UpdateDistance(info.Name, info.Distance);
-                _satelliteRepository.UpdateMessage(info.Name, info.message);
+                _satelliteRepository.UpdateInfo(info.Name, info.Distance, info.message);
             }
 
             var spaceShip = new Spaceship(finalLocation[0], finalLocation[1], finalString);
             return spaceShip;
         }
 
-
+        private void GetSavedMessages(out string[] mensaje1, out string[] mensaje2, out string[] mensaje3)
+        {
+            mensaje1 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == KENOBI).SavedMessage;
+            mensaje2 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == SKYWALKER).SavedMessage;
+            mensaje3 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == SATO).SavedMessage;
+        }
     }
 }

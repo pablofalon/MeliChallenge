@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliChallenge.API", "MeliChallenge.API\MeliChallenge.API.csproj", "{DF35B166-5471-466D-BE7E-2EF49EE58236}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeliChallenge.API", "MeliChallenge.API\MeliChallenge.API.csproj", "{DF35B166-5471-466D-BE7E-2EF49EE58236}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliChallenge.Services", "MeliChallenge.Services\MeliChallenge.Services.csproj", "{416C1F8B-AA30-4690-B59D-9D9D6712E579}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeliChallenge.Services", "MeliChallenge.Services\MeliChallenge.Services.csproj", "{416C1F8B-AA30-4690-B59D-9D9D6712E579}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliChallenge.Domain", "MeliChallenge.Domain\MeliChallenge.Domain.csproj", "{D5690683-3776-4227-954C-5F927F80D432}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeliChallenge.Domain", "MeliChallenge.Domain\MeliChallenge.Domain.csproj", "{D5690683-3776-4227-954C-5F927F80D432}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{15B448E4-D032-4293-B5BA-834433B0375B}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\MeliChallenge.postman_collection.json = Documentation\MeliChallenge.postman_collection.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
