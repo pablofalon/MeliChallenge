@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "9f6358bb-83fb-4579-8c87-a99af1f62bff",
+		"name": "MeliChallengeCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Position By Satellite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"distance\": 90,\r\n    \"message\": [\r\n        \"este\",\r\n        \"\",\r\n        \"\",\r\n        \"mensaje\",\r\n        \"\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/topsecret_slip/{{satelliteName}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"topsecret_slip",
+						"{{satelliteName}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPosition",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"satellites\": [\r\n        {\r\n            \"name\": \"Kenobi\",\r\n            \"distance\": 84,\r\n            \"message\": [\r\n                \"este\",\r\n                \"\",\r\n                \"\",\r\n                \"mensaje\",\r\n                \"\"\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Skywalker\",\r\n            \"distance\": 114,\r\n            \"message\": [\r\n                \"\",\r\n                \"es\",\r\n                \"\",\r\n                \"\",\r\n                \"secreto\"\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Sato\",\r\n            \"distance\": 1,\r\n            \"message\": [\r\n                \"este\",\r\n                \"\",\r\n                \"un\",\r\n                \"\",\r\n                \"\"\r\n            ]\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/topsecret/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"topsecret",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

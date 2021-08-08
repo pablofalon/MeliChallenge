@@ -102,9 +102,9 @@ namespace MeliChallenge.Services
 
         private void GetSavedMessages(out string[] mensaje1, out string[] mensaje2, out string[] mensaje3)
         {
-            mensaje1 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == KENOBI).SavedMessage;
-            mensaje2 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == SKYWALKER).SavedMessage;
-            mensaje3 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name == SATO).SavedMessage;
+            mensaje1 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name.ToLower() == KENOBI).SavedMessage;
+            mensaje2 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name.ToLower() == SKYWALKER).SavedMessage;
+            mensaje3 = _satelliteRepository.GetAll().SingleOrDefault(x => x.Name.ToLower() == SATO).SavedMessage;
         }
     }
 }

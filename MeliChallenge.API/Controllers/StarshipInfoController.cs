@@ -11,7 +11,11 @@ namespace MeliChallenge.API.Controllers
     public class StarshipInfoController : ControllerBase
     {
         #region Const
-        private const string ERROR_MESSAGE = "No se ha podido determinar mensaje o posicion";
+        private const string ERROR_MESSAGE_INDETERMINADO = "No se ha podido determinar mensaje o posicion";
+        private const string ERROR_MESSAGE_OBJETOERRONEO = "No se ha podido determinar mensaje o posicion";
+        private const string ERROR_MESSAGE_FALTAINFO = "No se ha podido determinar mensaje o posicion";
+
+
         #endregion
 
         #region private members
@@ -31,23 +35,23 @@ namespace MeliChallenge.API.Controllers
         [HttpPost("topsecret")]
         public ActionResult<MessageResponseDTO> GetInfo(MessageRequestDTO request)
         {
-            if (request.Satellites.Count != 0)
-            {
-                foreach (var satellite in request.Satellites)
-                {
-                    listOfInfoFromSatellites.Add(new MessagePositionInfo
-                    { Name = satellite.Name, Distance = satellite.Distance, message = satellite.Message });
+            if (request == null) return BadRequest(ERROR_MESSAGE_OBJETOERRONEO);
+            if (request.Satellites.Count < 3) return BadRequest(ERROR_MESSAGE_FALTAINFO);
 
-                }
+            foreach (var satellite in request.Satellites)
+            {
+                listOfInfoFromSatellites.Add(new MessagePositionInfo
+                { Name = satellite.Name, Distance = satellite.Distance, message = satellite.Message });
+
             }
-           var res = _service.GetInformationAboutStarship(listOfInfoFromSatellites);
+            var res = _service.GetInformationAboutStarship(listOfInfoFromSatellites);
 
-            if (res==null || ((res.X == 0 && res.Y == 0) || res.Message == string.Empty))
+            if (res == null || ((res.X == 0 && res.Y == 0) || res.Message == string.Empty))
             {
-                return BadRequest(ERROR_MESSAGE);
-            }           
+                return BadRequest(ERROR_MESSAGE_INDETERMINADO);
+            }
 
-            return Ok(new MessageResponseDTO(res.X, res.Y, res.Message));          
+            return Ok(new MessageResponseDTO(res.X, res.Y, res.Message));
 
         }
 
@@ -56,25 +60,24 @@ namespace MeliChallenge.API.Controllers
         {
             var messageInfo = new MessagePositionInfo()
             {
-                Name = request.Name,
+                Name = satelliteName,
                 message = request.Message,
                 Distance = request.Distance,
             };
 
-
             var res = _service.GetInformationAboutSingleStarship(messageInfo);
-            if (res!=null)
+            if (res != null)
             {
                 if ((res.X == 0 && res.Y == 0) || res.Message == string.Empty)
                 {
-                    return BadRequest(ERROR_MESSAGE);
+                    return BadRequest(ERROR_MESSAGE_INDETERMINADO);
                 }
 
                 return Ok(
-                    new MessageResponseDTO(res.X,res.Y,res.Message)
+                    new MessageResponseDTO(res.X, res.Y, res.Message)
                     );
             }
-            return BadRequest(ERROR_MESSAGE);
+            return BadRequest(ERROR_MESSAGE_INDETERMINADO);
         }
         #endregion
     }
