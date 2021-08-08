@@ -6,6 +6,9 @@ using System.Text;
 
 namespace MeliChallenge.Services
 {
+    /// <summary>
+    /// Clase encargada de determinar el mensaje
+    /// </summary>
     public class MessageService : IMessageService
     {
         public string GetMessage(string[] mensaje1, string[] mensaje2, string[] mensaje3)
@@ -16,7 +19,6 @@ namespace MeliChallenge.Services
 
             for (int i = 0; i < mensaje1.Count(); i++)
             {
-
                 var palabra1 = mensaje1[i];
                 var palabra2 = mensaje2[i];
                 var palabraValida = string.Empty;

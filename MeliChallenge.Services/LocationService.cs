@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace MeliChallenge.Services
-{
-    public class LocationService:ILocationService
+{/// <summary>
+/// Clase encargada de realizar los calculos de localizacion de la posicion
+/// </summary>
+    public class LocationService : ILocationService
     {
         public static IList<Satellite> _list;
         public ISatelliteRepository _satelliteRepository;
@@ -15,7 +17,7 @@ namespace MeliChallenge.Services
             _satelliteRepository = satelliteRepository;
             _list = _satelliteRepository.GetAll();
         }
-     
+
         #region Metodo de Trilateracion
         public static double[] CalculateDistance(Point p1, Point p2, Point p3)
         {
@@ -55,7 +57,7 @@ namespace MeliChallenge.Services
         {
             float[] coordinates = new float[2];
 
-                var p1 = new Point()
+            var p1 = new Point()
             {
                 PositionX = _list.SingleOrDefault(x => x.Name == "Kenobi").Location.PositionX,
                 PositionY = _list.SingleOrDefault(x => x.Name == "Kenobi").Location.PositionY,
@@ -86,7 +88,7 @@ namespace MeliChallenge.Services
                 coordinates[0] = lat;
                 coordinates[1] = Lng;
             }
-            else 
+            else
             {
                 coordinates[0] = 0;
                 coordinates[1] = 0;
@@ -94,5 +96,5 @@ namespace MeliChallenge.Services
             return coordinates;
         }
     }
-       
+
 }
