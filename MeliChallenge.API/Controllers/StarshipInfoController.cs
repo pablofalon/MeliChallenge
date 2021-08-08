@@ -41,10 +41,11 @@ namespace MeliChallenge.API.Controllers
                 }
             }
            var res = _service.GetInformationAboutStarship(listOfInfoFromSatellites);
-            if ((res.X==0 && res.Y==0)||res.Message==string.Empty)
+
+            if (res==null || ((res.X == 0 && res.Y == 0) || res.Message == string.Empty))
             {
                 return BadRequest(ERROR_MESSAGE);
-            }
+            }           
 
             return Ok(new MessageResponseDTO(res.X, res.Y, res.Message));          
 

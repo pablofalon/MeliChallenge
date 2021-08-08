@@ -10,5 +10,10 @@ namespace MeliChallenge.API.DTOs
         public string Name { get; set; }
         public float Distance { get; set; }
         public string[] Message { get; set; }
+
+        public SatelliteDTO()
+        {
+            Message = new string[5];
+        }
     }
 }

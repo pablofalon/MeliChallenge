@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\MeliChallenge.postman_collection.json = Documentation\MeliChallenge.postman_collection.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeliChallenge.Test", "MeliChallenge.Test\MeliChallenge.Test.csproj", "{FACFDC28-9FA1-49CA-B044-6D3DF97E086F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{D5690683-3776-4227-954C-5F927F80D432}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5690683-3776-4227-954C-5F927F80D432}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5690683-3776-4227-954C-5F927F80D432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACFDC28-9FA1-49CA-B044-6D3DF97E086F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACFDC28-9FA1-49CA-B044-6D3DF97E086F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACFDC28-9FA1-49CA-B044-6D3DF97E086F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACFDC28-9FA1-49CA-B044-6D3DF97E086F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
