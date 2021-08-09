@@ -5,8 +5,7 @@ Meli Challenge es una solucion propuesta a la problematica planteada por el desa
 ## Requerimientos funcionales
 <strong>1) Se solicita una aplicacion que identifique una posicion a partir de 3 posiciones conocidas. Se considera X,Y como unidad de medida.</strong>
 
-<p>Para satisfacer este punto se usara el algoritmo de Trilateracion. El mismo realiza su calculo a partir de 3 puntos (x1,y1),(x2,y2),(x3,y3) y sus respectivas distancias (r1,r2,r3)
-al punto incognita (x0,y0). Al ingresar el valor de dichos puntos, se calculara la posicion del punto incognita.<a href="https://es.wikipedia.org/wiki/Trilateraci%C3%B3n"> https://es.wikipedia.org/wiki/Trilateraci%C3%B3n </a>
+<p>Para satisfacer este punto se usara el algoritmo de Trilateracion. El mismo realiza su calculo a partir de 3 puntos (x1,y1),(x2,y2),(x3,y3) y sus respectivas distancias (r1,r2,r3) al punto incognita (x0,y0). Al ingresar el valor de dichos puntos, se calculara la posicion del punto incognita.<a href="https://es.wikipedia.org/wiki/Trilateraci%C3%B3n"> https://es.wikipedia.org/wiki/Trilateraci%C3%B3n </a>
 
 <strong>2) Se solicita que a partir de la informacion enviada (Mensaje) por los 3 satelites, se determine el mensaje completo generado por el elemento en la posicion desconocida.</strong>
 <p>Para satisfacer este punto se creara la logica necesaria para establecer un mensaje completo a partir de los 3 mensajes enviados por los satelites.</p>
@@ -53,9 +52,14 @@ ilustrativo un metodo de prueba de un endpoint de la WEBAPI con el fin de mostra
 - Adicionalmente se agrega a la solucion una carpeta donde se encuentra la coleccion Postman para realizar las llamadas a los endpoints y configurar los ambientes de pruebas.
 
 
-## Consideracion Importante:
-<p> No se consiguio la solucion con los puntos (X,Y) planteados para cada satelite en el desafio</p>
-<p> De todas maneras, se pudo resolver eld esafio aplicando otros valores pero que son aceptados por el calculo de trilateracion </p>
+## Consideraciones Importantes:
+- No se consiguio la solucion con los puntos (X,Y) planteados para cada satelite en el desafio.
+De todas maneras, se pudo resolver el desafio aplicando otros valores pero que son aceptados por el calculo de trilateracion.
+
+- De vital importancia que se ejecute primero el endpoint que contiene toda la informacion (/topsecret) para completar informacion del repositorio.
+Si se ejecuta topsecret/{{satelliteName}} primero, el sistema informara que no existen datos suficientes.
+
+- Se considera que un mensaje tiene TAMAÑO FIJO de 5 y puede incluir vacios. Ej: {"Este","","","","Secreto"}
 
 
 ## Ejecucion
