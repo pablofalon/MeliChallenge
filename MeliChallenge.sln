@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{15B448E4-D032-4293-B5BA-834433B0375B}"
 	ProjectSection(SolutionItems) = preProject
 		Documentation\MeliChallengeCollection.postman_collection.json = Documentation\MeliChallengeCollection.postman_collection.json
+		Documentation\Operacion Fuego de Quasar.pdf = Documentation\Operacion Fuego de Quasar.pdf
 		Documentation\Production.postman_environment.json = Documentation\Production.postman_environment.json
 	EndProjectSection
 EndProject
