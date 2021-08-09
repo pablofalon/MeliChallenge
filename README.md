@@ -24,8 +24,9 @@ al punto incognita (x0,y0). Al ingresar el valor de dichos puntos, se calculara 
 
 # Tecnologias Involucradas
 - Visual Studio 2019 16.8 o posterior
+- Lenguaje C# 
 -.NET 5.0 SDK o posterior
-- Azure API management
+- Microsoft Azure API management
 
 # Arquitectura de la solucion
 La solucion se encuentra planteadas en 3 proyectos:
