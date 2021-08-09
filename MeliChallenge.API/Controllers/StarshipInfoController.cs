@@ -46,7 +46,7 @@ namespace MeliChallenge.API.Controllers
             }
             var res = _service.GetInformationAboutStarship(listOfInfoFromSatellites);
 
-            if (res == null || ((res.X == 0 && res.Y == 0) || res.Message == string.Empty))
+            if (res == null || ((res.X == 0 && res.Y == 0) || string.IsNullOrWhiteSpace(res.Message)))
             {
                 return BadRequest(ERROR_MESSAGE_INDETERMINADO);
             }

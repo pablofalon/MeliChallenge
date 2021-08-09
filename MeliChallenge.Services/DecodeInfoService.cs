@@ -90,6 +90,7 @@ namespace MeliChallenge.Services
                 ListOfMessagePositionInfo[1].message,
                 ListOfMessagePositionInfo[2].message);
 
+          
             //Actualizar informacion del repositorio
             foreach (var info in ListOfMessagePositionInfo)
             {
