@@ -50,6 +50,10 @@ de la nave. Tambien contiene las interfaces de los servicios implementados. Para
 ilustrativo un metodo de prueba de un endpoint de la WEBAPI con el fin de mostrar la idea de test unitario y su forma de platearse (Patron AAA -Arrange/Act/Assert)
 
 - Adicionalmente se agrega a la solucion una carpeta donde se encuentra la coleccion Postman para realizar las llamadas a los endpoints y configurar los ambientes de pruebas.
+<p>Para realizar las pruebas recordar de importar tanto coleccion como ambiente. En el caso de no utilizar los ambientes con postman realizar los reemplazos:<p>
+
+<p><strong>{{baseUrl}}</strong> por <strong>http://melichallengeapp.azurewebsites.net/</strong> o <strong>http://localhost:18298</strong> segun se requiera<p>
+<p><strong>{{satelliteName}}</strong> por <strong>Sato</strong> o <strong>Kenobi</strong> o <strong>Skywalker</strong><p>
 
 
 ## Consideraciones Importantes:
