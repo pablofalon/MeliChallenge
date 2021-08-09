@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Get Position By Satellite",
+			"name": "/topsecret_slip/{satelliteName}",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -33,7 +33,7 @@
 			"response": []
 		},
 		{
-			"name": "GetPosition",
+			"name": "/topsecret",
 			"request": {
 				"method": "POST",
 				"header": [],
