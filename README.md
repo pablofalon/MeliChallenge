@@ -56,6 +56,11 @@ ilustrativo un metodo de prueba de un endpoint de la WEBAPI con el fin de mostra
 - No se consiguio la solucion con los puntos (X,Y) planteados para cada satelite en el desafio.
 De todas maneras, se pudo resolver el desafio aplicando otros valores pero que son aceptados por el calculo de trilateracion.
 
+<p>Satellite "Kenobi" PositionX=4,PositionY=5 </p>
+<p>Satellite "Skywalker", PositionX=4,PositionY=7</p>
+<p>Satellite "Sato", PositionX=5,PositionY=7 </p>
+
+ 
 - De vital importancia que se ejecute primero el endpoint que contiene toda la informacion (/topsecret) para completar informacion del repositorio.
 Si se ejecuta topsecret/{{satelliteName}} primero, el sistema informara que no existen datos suficientes.
 
